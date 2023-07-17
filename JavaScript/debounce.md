@@ -20,20 +20,20 @@ function debounce (func, wait, immediate) {
     immediate = wait
     wait = 300
   }
-  // 防抖函数 -> 开启一个定时器, 让 func 函数在规定时间内执行
+  // 防抖函数 -> 开启一个延时器, 让 func 函数在规定时间内执行
   // 采用高阶函数中的函数作为返回值, 利用闭包的特性存储 timer
   var timer;
   return function (...args) {
     const that = this
-    // 每次执行函数之前我们需要清除定时器, 目的：清除每次触发事情多余的次数
+    // 每次执行函数之前我们需要清除延时器, 目的：清除每次触发事情多余的次数
     timer && clearTimeout(timer)
     // 判断 immediate 是否为真 并且 timer 为假 才执行函数
     immediate && !timer ? func.apply(that, args) : null
-    // 开启定时器 
+    // 开启延时器
     // 在 setTimeout this 指向的 window 
     timer = setTimeout(function(){
       timer = null;
-      // 如果 immediate 立即执行 定时器结束后不需要执行
+      // 如果 immediate 立即执行 延时器结束后不需要执行
       !immediate ? func.apply(that, args) : null
     }, wait)
   }
