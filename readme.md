@@ -1,4 +1,4 @@
-# 学习笔记
+# personal study notes
 
 |目录 | 内容描述
 |- | -:|
