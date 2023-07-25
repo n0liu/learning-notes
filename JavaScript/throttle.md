@@ -22,12 +22,12 @@ function myThrottle (func, wait) {
       func.call(that, ...args)
       // 保存当前函数执行的时间
       previous = new Date()
-      clearTimeout(timer) // 清空定时器的操作，不能将timer值重置
+      clearTimeout(timer) // 清空延时器的操作，不能将timer值重置
       // 手动重置
       timer = null
     } else if (!timer){
       timer = setTimeout(function () {
-        clearTimeout(timer) // 清空定时器的操作，不能将timer值重置
+        clearTimeout(timer) // 清空延时器的操作，不能将timer值重置
         // 手动重置
         timer = null
         func.call(that, ...args)
